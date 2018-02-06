@@ -20,11 +20,15 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         setup()
         layout()
-        load(url: URL(string: "https://www.amazon.co.jp/")!)
+        loadFirstPage()
     }
     
     private func setup() {
-        webView = WKWebView()
+        
+        let conf = WKWebViewConfiguration()
+        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: "stv")
+        
+        webView = WKWebView(frame:CGRect.zero, configuration: conf)
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.allowsBackForwardNavigationGestures = true
@@ -46,18 +50,20 @@ final class ViewController: UIViewController {
             .isActive = true
     }
     
-    private func load(url: URL) {
-        let request = NSURLRequest(url: url) as URLRequest
-        webView.load(request)
+    private func loadFirstPage() {
+        if let htmlData = Bundle.main.path(forResource: "index", ofType: "html") {
+            webView.load(URLRequest(url: URL(fileURLWithPath: htmlData)))
+            self.view.addSubview(webView)
+        } else {
+            print("file not found")
+        }
     }
-    
+
     @IBAction func goBackButton(_ sender: UIBarButtonItem) {
-        
         if webView.canGoBack { webView.goBack() }
     }
     
     @IBAction func goForwordButton(_ sender: UIBarButtonItem) {
-        
         if webView.canGoForward { webView.goForward() }
     }
 }
@@ -91,6 +97,25 @@ extension ViewController: WKNavigationDelegate {
         }
         
         decisionHandler(.allow)
+    }
+    
+}
+
+final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
+    func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
+
+        if webView.url?.scheme == "stv" {
+            hookUrlSchme()
+            return
+        }
+    }
+
+    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
+        
+    }
+    
+    private func hookUrlSchme() {
+        print("hook url scheme")
     }
 }
 

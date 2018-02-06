@@ -13,6 +13,7 @@
 		BCD9B03D1E74B47300FBCCB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD9B03C1E74B47300FBCCB4 /* Assets.xcassets */; };
 		BCD9B0401E74B47300FBCCB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD9B03E1E74B47300FBCCB4 /* LaunchScreen.storyboard */; };
 		BCD9B04B1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9B04A1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift */; };
+		C549F81E202A680E00F2E21A /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C549F81D202A680E00F2E21A /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		BCD9B0461E74B47400FBCCB4 /* ios-uikit-wkwebview-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-uikit-wkwebview-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD9B04A1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_uikit_wkwebview_demoTests.swift; sourceTree = "<group>"; };
 		BCD9B04C1E74B47400FBCCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C549F81D202A680E00F2E21A /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				BCD9B03C1E74B47300FBCCB4 /* Assets.xcassets */,
 				BCD9B03E1E74B47300FBCCB4 /* LaunchScreen.storyboard */,
 				BCD9B0411E74B47300FBCCB4 /* Info.plist */,
+				C549F81D202A680E00F2E21A /* index.html */,
 			);
 			path = "ios-uikit-wkwebview-demo";
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD9B0401E74B47300FBCCB4 /* LaunchScreen.storyboard in Resources */,
+				C549F81E202A680E00F2E21A /* index.html in Resources */,
 				BCD9B03D1E74B47300FBCCB4 /* Assets.xcassets in Resources */,
 				BCD9B03B1E74B47300FBCCB4 /* Main.storyboard in Resources */,
 			);
@@ -341,6 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UE5DCQPTRB;
 				INFOPLIST_FILE = "ios-uikit-wkwebview-demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.st-ventures.ios-uikit-wkwebview-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UE5DCQPTRB;
 				INFOPLIST_FILE = "ios-uikit-wkwebview-demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.st-ventures.ios-uikit-wkwebview-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +416,7 @@
 				BCD9B0511E74B47400FBCCB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCD9B0521E74B47400FBCCB4 /* Build configuration list for PBXNativeTarget "ios-uikit-wkwebview-demoTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +425,7 @@
 				BCD9B0541E74B47400FBCCB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>テストページ</h1>
+        <p>ローカルのHTMLを表示</p>
+        
+        <form>
+            <input type="button" name="link" value="TOPへ" onclick="gotoScheme()">
+        </form>
+    </body>
+    
+    <script>
+        function gotoScheme(){
+            location.href = "stv://test?a&b";
+        }
+    </script>
+</html>
