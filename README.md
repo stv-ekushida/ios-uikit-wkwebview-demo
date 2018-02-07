@@ -129,7 +129,9 @@ final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
         urlSchemeTask.didFailWithError(WebErrors.RequestFailedError)
     }
 }
+```
 
+```
 import Foundation
 
 enum HandlerType {
