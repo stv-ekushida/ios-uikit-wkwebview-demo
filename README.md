@@ -25,10 +25,7 @@ final class ViewController: UIViewController {
     
     private func setup() {
         
-        let conf = WKWebViewConfiguration()
-        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: "stv")
-        
-        webView = WKWebView(frame:CGRect.zero, configuration: conf)
+        webView = WKWebView()
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.allowsBackForwardNavigationGestures = true
@@ -100,22 +97,36 @@ extension ViewController: WKNavigationDelegate {
     }
     
 }
+```
+
+### iOS11 カスタムURLのフック方法
+①カスタムハンドラーをWKWebViewに設定する
+
+```
+    private func setup() {
+        
+        let conf = WKWebViewConfiguration()
+        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: Constants.customURLScheme)
+        
+        webView = WKWebView(frame:CGRect.zero, configuration: conf)
+    }
+```
+
+②カスタムURLを受信すると、フックする処理を追加する
+```
+import WebKit
 
 final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
     func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
-
-        if webView.url?.scheme == "stv" {
-            hookUrlSchme()
+        
+        guard let url = urlSchemeTask.request.url else {
             return
         }
-    }
-
-    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
-        
+        URLMatcher.match(url).action()
     }
     
-    private func hookUrlSchme() {
-        print("hook url scheme")
+    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
+        urlSchemeTask.didFailWithError(WebErrors.RequestFailedError)
     }
 }
 ```
