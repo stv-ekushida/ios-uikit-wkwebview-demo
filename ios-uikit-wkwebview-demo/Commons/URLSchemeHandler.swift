@@ -18,5 +18,6 @@ final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
     }
     
     func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
+        urlSchemeTask.didFailWithError(WebErrors.RequestFailedError)
     }
 }
