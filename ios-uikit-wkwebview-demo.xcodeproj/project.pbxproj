@@ -14,6 +14,9 @@
 		BCD9B0401E74B47300FBCCB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD9B03E1E74B47300FBCCB4 /* LaunchScreen.storyboard */; };
 		BCD9B04B1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9B04A1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift */; };
 		C549F81E202A680E00F2E21A /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C549F81D202A680E00F2E21A /* index.html */; };
+		C549F820202B18B200F2E21A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C549F81F202B18B200F2E21A /* Constants.swift */; };
+		C549F822202B18F100F2E21A /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C549F821202B18F100F2E21A /* URLSchemeHandler.swift */; };
+		C549F827202B244B00F2E21A /* URLMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C549F826202B244B00F2E21A /* URLMatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		BCD9B04A1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_uikit_wkwebview_demoTests.swift; sourceTree = "<group>"; };
 		BCD9B04C1E74B47400FBCCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C549F81D202A680E00F2E21A /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		C549F81F202B18B200F2E21A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C549F821202B18F100F2E21A /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
+		C549F826202B244B00F2E21A /* URLMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +67,9 @@
 		BCD9B0291E74B47300FBCCB4 = {
 			isa = PBXGroup;
 			children = (
+				BCD9B0331E74B47300FBCCB4 /* Products */,
 				BCD9B0341E74B47300FBCCB4 /* ios-uikit-wkwebview-demo */,
 				BCD9B0491E74B47400FBCCB4 /* ios-uikit-wkwebview-demoTests */,
-				BCD9B0331E74B47300FBCCB4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +85,13 @@
 		BCD9B0341E74B47300FBCCB4 /* ios-uikit-wkwebview-demo */ = {
 			isa = PBXGroup;
 			children = (
+				C549F825202B194900F2E21A /* Assets */,
+				C549F824202B193A00F2E21A /* Commons */,
+				C549F823202B192E00F2E21A /* Controllers */,
 				BCD9B0351E74B47300FBCCB4 /* AppDelegate.swift */,
-				BCD9B0371E74B47300FBCCB4 /* ViewController.swift */,
-				BCD9B0391E74B47300FBCCB4 /* Main.storyboard */,
 				BCD9B03C1E74B47300FBCCB4 /* Assets.xcassets */,
-				BCD9B03E1E74B47300FBCCB4 /* LaunchScreen.storyboard */,
 				BCD9B0411E74B47300FBCCB4 /* Info.plist */,
-				C549F81D202A680E00F2E21A /* index.html */,
+				BCD9B03E1E74B47300FBCCB4 /* LaunchScreen.storyboard */,
 			);
 			path = "ios-uikit-wkwebview-demo";
 			sourceTree = "<group>";
@@ -93,10 +99,37 @@
 		BCD9B0491E74B47400FBCCB4 /* ios-uikit-wkwebview-demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				BCD9B04A1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift */,
 				BCD9B04C1E74B47400FBCCB4 /* Info.plist */,
+				BCD9B04A1E74B47400FBCCB4 /* ios_uikit_wkwebview_demoTests.swift */,
 			);
 			path = "ios-uikit-wkwebview-demoTests";
+			sourceTree = "<group>";
+		};
+		C549F823202B192E00F2E21A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BCD9B0391E74B47300FBCCB4 /* Main.storyboard */,
+				BCD9B0371E74B47300FBCCB4 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C549F824202B193A00F2E21A /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				C549F81F202B18B200F2E21A /* Constants.swift */,
+				C549F821202B18F100F2E21A /* URLSchemeHandler.swift */,
+				C549F826202B244B00F2E21A /* URLMatcher.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		C549F825202B194900F2E21A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C549F81D202A680E00F2E21A /* index.html */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +240,9 @@
 			files = (
 				BCD9B0381E74B47300FBCCB4 /* ViewController.swift in Sources */,
 				BCD9B0361E74B47300FBCCB4 /* AppDelegate.swift in Sources */,
+				C549F827202B244B00F2E21A /* URLMatcher.swift in Sources */,
+				C549F820202B18B200F2E21A /* Constants.swift in Sources */,
+				C549F822202B18F100F2E21A /* URLSchemeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +271,7 @@
 				BCD9B03A1E74B47300FBCCB4 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		BCD9B03E1E74B47300FBCCB4 /* LaunchScreen.storyboard */ = {
@@ -243,6 +280,7 @@
 				BCD9B03F1E74B47300FBCCB4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
