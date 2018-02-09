@@ -10,28 +10,30 @@
         <p>ローカルのHTMLを表示</p>
         
         <form>
-            <input type="button" name="link" value="Scheme起動A" onclick="gotoSchemeA()">
+            <input type="button" name="link" value="SchemeA起動" onclick="gotoSchemeA()">
         </form>
+        
         <form>
-            <input type="button" name="link" value="Scheme起動B" onclick="gotoSchemeB()">
+            <input type="button" name="link" value="SchemeB起動" onclick="gotoSchemeB()">
         </form>
+
         <form>
-            <input type="button" name="link" value="PDF起動" onclick="openPdf()">
+            <input type="button" name="link" value="PDF起動" onclick="openPDF()">
         </form>
 
     </body>
     
     <script>
         function gotoSchemeA(){
-            location.href = "stv://test?name=yamada&gender=men";
+            location.href = "stv://test?name=kushida&gender=men";
         }
-
+    
         function gotoSchemeB(){
-            location.href = "sdt://test?name=tanaka&gender=men";
+            location.href = "sdt://test?name=kushida&gender=men";
         }
-
-        function openPdf() {
-            location.href = "https://developer.apple.com/jp/documentation/CocoaEncyclopedia.pdf"
+    
+        function openPDF(){
+            location.href = "https://developer.apple.com/jp/documentation/CocoaEncyclopedia.pdf";
         }
     </script>
 </html>

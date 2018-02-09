@@ -11,5 +11,4 @@ import Foundation
 struct Constants {
     static let customURLSchemeA = "stv"
     static let customURLSchemeB = "sdt"
-
 }

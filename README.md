@@ -25,10 +25,14 @@ final class ViewController: UIViewController {
     
     private func setup() {
         
+<<<<<<< HEAD
         let conf = WKWebViewConfiguration()
         conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: "stv")
         
         webView = WKWebView(frame:CGRect.zero, configuration: conf)
+=======
+        webView = WKWebView()
+>>>>>>> cfdd983ec150b173627aab7f377571ffc3646cdd
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.allowsBackForwardNavigationGestures = true
@@ -100,6 +104,7 @@ extension ViewController: WKNavigationDelegate {
     }
     
 }
+<<<<<<< HEAD
 
 final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
     func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
@@ -116,6 +121,86 @@ final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
     
     private func hookUrlSchme() {
         print("hook url scheme")
+=======
+```
+
+### iOS11 カスタムURLのフック方法
+①カスタムハンドラーをWKWebViewに設定する
+
+```
+    private func setup() {
+        
+        let conf = WKWebViewConfiguration()
+        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: Constants.customURLScheme)
+        
+        webView = WKWebView(frame:CGRect.zero, configuration: conf)
+    }
+```
+
+②カスタムURLを受信すると、フックする処理を追加する
+```
+import WebKit
+
+final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
+    func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
+        
+        guard let url = urlSchemeTask.request.url else {
+            return
+        }
+        URLMatcher.match(url).action()
+    }
+    
+    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
+        urlSchemeTask.didFailWithError(WebErrors.RequestFailedError)
+    }
+}
+```
+
+```
+import Foundation
+
+enum HandlerType {
+    case none
+    case hook([String: String])
+    
+    func action() {
+        switch self {
+        case .hook(let params):
+            hookUrlSchme(params)
+        case .none:
+            break
+        }
+    }
+    
+    /// URLスキームでフックしたときにやりたい処理
+    ///
+    /// - Parameter params: <#params description#>
+    private func hookUrlSchme(_ params: [String : String]) {
+        print("hook url scheme")
+        
+        params.forEach {
+            print("\($0.key) : \($0.value)")
+        }
+    }
+}
+
+final class URLMatcher {
+    
+    static func match(_ url: URL) -> HandlerType {
+        
+        if url.scheme == Constants.customURLScheme {
+            
+            var params: [String : String] = [:]
+            
+            if let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems {
+                for queryParams in queryItems {
+                    params[queryParams.name] = queryParams.value
+                }
+            }
+            return .hook(params)
+        }
+        return .none
+>>>>>>> cfdd983ec150b173627aab7f377571ffc3646cdd
     }
 }
 ```

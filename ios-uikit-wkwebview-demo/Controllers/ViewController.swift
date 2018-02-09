@@ -100,8 +100,7 @@ extension ViewController: WKNavigationDelegate {
             URLMatcher.match(url).action()
             decisionHandler(.cancel)
             return
-        }
-        
+        }        
         decisionHandler(.allow)
     }
     
