@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
     private func setup() {
         
         let conf = WKWebViewConfiguration()
-        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: Constants.customURLScheme)
+        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: Constants.customURLSchemeA)
         
         webView = WKWebView(frame:CGRect.zero, configuration: conf)
         webView.navigationDelegate = self
@@ -86,7 +86,6 @@ extension ViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-        print(url.description)
         // target="_blank"の場合
         if navigationAction.navigationType == WKNavigationType.linkActivated {
             if navigationAction.targetFrame == nil || !(navigationAction.targetFrame!.isMainFrame) {
@@ -94,6 +93,13 @@ extension ViewController: WKNavigationDelegate {
                 decisionHandler(.cancel)
                 return
             }
+        }
+        
+        let action = url.description
+        if action.hasPrefix(Constants.customURLSchemeB) {
+            URLMatcher.match(url).action()
+            decisionHandler(.cancel)
+            return
         }
         
         decisionHandler(.allow)

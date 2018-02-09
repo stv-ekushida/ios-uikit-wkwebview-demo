@@ -10,9 +10,11 @@
         <p>ローカルのHTMLを表示</p>
         
         <form>
-            <input type="button" name="link" value="Scheme起動1" onclick="gotoScheme()">
+            <input type="button" name="link" value="Scheme起動A" onclick="gotoSchemeA()">
         </form>
-        
+        <form>
+            <input type="button" name="link" value="Scheme起動B" onclick="gotoSchemeB()">
+        </form>
         <form>
             <input type="button" name="link" value="PDF起動" onclick="openPdf()">
         </form>
@@ -20,12 +22,12 @@
     </body>
     
     <script>
-        function gotoScheme(){
-            location.href = "stv://test?name=kushida&gender=men";
+        function gotoSchemeA(){
+            location.href = "stv://test?name=yamada&gender=men";
         }
 
-        function gotoScheme(){
-            location.href = "sdt://test?name=kushida&gender=men";
+        function gotoSchemeB(){
+            location.href = "sdt://test?name=tanaka&gender=men";
         }
 
         function openPdf() {

@@ -9,5 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let customURLScheme = "stv"
+    static let customURLSchemeA = "stv"
+    static let customURLSchemeB = "sdt"
+
 }
