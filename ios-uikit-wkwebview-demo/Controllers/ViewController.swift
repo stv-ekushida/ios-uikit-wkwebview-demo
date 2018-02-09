@@ -86,7 +86,7 @@ extension ViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-        
+        print(url.description)
         // target="_blank"の場合
         if navigationAction.navigationType == WKNavigationType.linkActivated {
             if navigationAction.targetFrame == nil || !(navigationAction.targetFrame!.isMainFrame) {
