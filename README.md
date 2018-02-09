@@ -25,14 +25,7 @@ final class ViewController: UIViewController {
     
     private func setup() {
         
-<<<<<<< HEAD
-        let conf = WKWebViewConfiguration()
-        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: "stv")
-        
-        webView = WKWebView(frame:CGRect.zero, configuration: conf)
-=======
         webView = WKWebView()
->>>>>>> cfdd983ec150b173627aab7f377571ffc3646cdd
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.allowsBackForwardNavigationGestures = true
@@ -104,24 +97,7 @@ extension ViewController: WKNavigationDelegate {
     }
     
 }
-<<<<<<< HEAD
 
-final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
-    func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
-
-        if webView.url?.scheme == "stv" {
-            hookUrlSchme()
-            return
-        }
-    }
-
-    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
-        
-    }
-    
-    private func hookUrlSchme() {
-        print("hook url scheme")
-=======
 ```
 
 ### iOS11 カスタムURLのフック方法
@@ -200,7 +176,6 @@ final class URLMatcher {
             return .hook(params)
         }
         return .none
->>>>>>> cfdd983ec150b173627aab7f377571ffc3646cdd
     }
 }
 ```
