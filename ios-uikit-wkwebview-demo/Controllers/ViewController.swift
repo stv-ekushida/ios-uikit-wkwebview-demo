@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
     private func setup() {
         
         let conf = WKWebViewConfiguration()
-        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: "stv")
+        conf.setURLSchemeHandler(URLSchemeHandler(), forURLScheme: Constants.customURLScheme)
         
         webView = WKWebView(frame:CGRect.zero, configuration: conf)
         webView.navigationDelegate = self
@@ -100,22 +100,3 @@ extension ViewController: WKNavigationDelegate {
     }
     
 }
-
-final class URLSchemeHandler: NSObject, WKURLSchemeHandler {
-    func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
-
-        if webView.url?.scheme == "stv" {
-            hookUrlSchme()
-            return
-        }
-    }
-
-    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
-        
-    }
-    
-    private func hookUrlSchme() {
-        print("hook url scheme")
-    }
-}
-
