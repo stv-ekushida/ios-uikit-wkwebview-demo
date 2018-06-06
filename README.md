@@ -1,7 +1,9 @@
 # ios-uikit-wkwebview-demo
 iOS WKWebViewを利用したサンプル(Swift3)
 
-※Storyboardを利用した実装ができない
+## 制約
+- iOS8以上のみ利用可能
+- Storyboardを利用した実装ができない
 
 ## 実装サンプル
 
